@@ -1,15 +1,20 @@
 //const sum = require('./sum');
 
 test('adds positive number is not zero',()=>{
-    for(let i=1; i<10; i++){
-        for(let j=1; j<10; j++){
-            expect(i+j).not.toBe(0)
-        }
-    }
+    const n= null;
+    expect(n).toBeNull();
+    expect(n).toBeDefined();
+    expect(n).toBeFalsy();
+    expect(n).not.toBeTruthy();
 })
 
 /*
     1. toBe (to comapare the values)
     2. toEqual (to compare the Objects)
     3. .not.toBe (opposite of toBe)
+    4.  toBeNull
+    5.  toBeDefined
+    6.  toBeUndefined
+    7.  toBeFalsy
+    8.  toBeTruthy
 */
