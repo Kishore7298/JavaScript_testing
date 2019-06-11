@@ -1,0 +1,13 @@
+{
+  "name": "javaScript_testing",
+  "version": "1.0.0",
+  "main": "sum",
+  "author": "kishore",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^24.8.0"
+  }
+}
