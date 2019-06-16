@@ -1,9 +1,9 @@
 const axios = require('axios');
 
 const sum = (callback)=>{
-    return axios.get('https://jsonplaceholder.typicode.com/todos/1').then((response)=>response.data.userId).catch((err)=>{console.error("error")});
+    return new Promise((resolve, reject)=>{
+        axios.get('https://jsonplaceholder.typicode.com/todos/1').then((response)=>resolve(response.data.userId)).catch((err)=>reject("error"))
+    })
 }
-
-//sum(callback);
 
 module.exports = sum;

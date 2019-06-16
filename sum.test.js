@@ -2,12 +2,17 @@ const sum = require('./sum');
 
 test('checking asynchronous code',()=>{
     const callback = (response)=>{
+        expect.assertions(3);
         expect(response).not.toBeUndefined();
         expect(response).not.toBeFalsy();
         expect(response).toBe(1);
     }
-    expect.assertions(3);
-    return sum().then(callback);
+    const errorCallback = (error)=>{
+        expect.assertions(1);
+        expect(error).toBe("error");
+    }
+    
+    return sum().then(callback).catch(errorCallback);
 })
 
 /*
