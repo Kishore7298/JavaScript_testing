@@ -1,20 +1,28 @@
 const sum = require('./sum');
 
-test('checking asynchronous code',()=>{
-    const callback = (response)=>{
-        expect.assertions(3);
-        expect(response).not.toBeUndefined();
-        expect(response).not.toBeFalsy();
-        expect(response).toBe(1);
+test('testing mock function',()=>{
+    function forEach(items, callback) {
+    for (let index = 0; index < items.length; index++) {
+      callback(items[index]);
     }
-    const errorCallback = (error)=>{
-        expect.assertions(1);
-        expect(error).toBe("error");
-    }
-    
-    return sum().then(callback).catch(errorCallback);
-})
+}
 
+const mockCallback = jest.fn(x => 42 + x);
+forEach([0, 1], mockCallback);
+
+// The mock function is called twice
+expect(mockCallback.mock.calls.length).toBe(2);
+
+// The first argument of the first call to the function was 0
+expect(mockCallback.mock.calls[0][0]).toBe(0);
+
+// The first argument of the second call to the function was 1
+expect(mockCallback.mock.calls[1][0]).toBe(1);
+
+// The return value of the first call to the function was 42
+expect(mockCallback.mock.results[2]).toBeUndefined();
+
+})
 /*
     1. toBe (to comapare the values)
     2. toEqual (to compare the Objects)
@@ -44,4 +52,16 @@ test('checking asynchronous code',()=>{
 
     Asynchronous code
     1. done()
+
+    Setup and Teardown
+    1. beforeAll
+    2. afterAll
+    3. beforeEach
+    4. afterEach
+    5. describe
+
+    Mock Functions
+    1. .mock.calls
+    2. jest.fn
+    3. .mock.result 
 */
