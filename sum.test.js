@@ -1,11 +1,13 @@
-//const sum = require('./sum');
+const sum = require('./sum');
 
-test('adds positive number is not zero',()=>{
-    const value = 2 + 2;
-    expect(value).toBeGreaterThan(3);
-    expect(value).toBeGreaterThanOrEqual(3.5);
-    expect(value).toBeLessThan(5);
-    expect(value).toBeLessThanOrEqual(4.5);
+test('checking asynchronous code',()=>{
+    const callback = (response)=>{
+        expect(response).not.toBeUndefined();
+        expect(response).not.toBeFalsy();
+        expect(response).toBe(1);
+    }
+    expect.assertions(3);
+    return sum().then(callback);
 })
 
 /*
@@ -34,5 +36,7 @@ test('adds positive number is not zero',()=>{
 
     Exceptions
     1. toThrow()
-    
+
+    Asynchronous code
+    1. done()
 */
