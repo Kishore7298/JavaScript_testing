@@ -25,4 +25,14 @@ test('adds positive number is not zero',()=>{
     2.  toBeGreaterThanOrEqual
     3.  toBeLessThan
     4.  toBeLessThanOrEqual
+
+    Strings
+    1. toMatch()
+    
+    Array
+    1. toContain
+
+    Exceptions
+    1. toThrow()
+    
 */
